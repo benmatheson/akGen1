@@ -34,6 +34,7 @@ mapboxgl.accessToken =
     });
 
     map1.scrollZoom.disable();
+    map1.touchZoomRotate.disable();
     map1.addControl(new mapboxgl.NavigationControl());
 
     map1.on("load", function() {
