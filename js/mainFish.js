@@ -19,6 +19,10 @@ mapboxgl.accessToken =
         // style: "mapbox://styles/mapbox/light-v9",
         style:  "mapbox://styles/benmatheson/cjo060m9v05hx2rp2yd4d3yiw",       // style: "mapbox://styles/mapbox/basic-v9",
 
+
+
+
+        
         pitch: 0,
     
         transition: {
@@ -95,9 +99,9 @@ geoData.features.forEach(item=>{
     //   0.001, "blue",
           //   
 
-      -.3,  "#2166ac",
-      0,   "#f8f6e9",
-       .3, "#b2182b"
+      -.1,  "#f1a340",
+      0,   "#f7f7f7",
+       .1, "#998ec3"
 
 
       ]
