@@ -19,6 +19,10 @@ mapboxgl.accessToken =
         // style: "mapbox://styles/mapbox/light-v9",
         style:  "mapbox://styles/benmatheson/cjo060m9v05hx2rp2yd4d3yiw",       // style: "mapbox://styles/mapbox/basic-v9",
 
+
+
+
+        
         pitch: 0,
     
         transition: {
@@ -34,7 +38,6 @@ mapboxgl.accessToken =
     });
 
     map1.scrollZoom.disable();
-    // map1.touchZoomRotate.disable();
     map1.addControl(new mapboxgl.NavigationControl());
 
     map1.on("load", function() {
@@ -96,9 +99,9 @@ geoData.features.forEach(item=>{
     //   0.001, "blue",
           //   
 
-      -.3,  "#2166ac",
-      0,   "#f8f6e9",
-       .3, "#b2182b"
+      -.1,  "#e8e40b",
+      0,   "#f7f7f7",
+       .1, "#b2182b"
 
 
       ]
@@ -123,7 +126,7 @@ geoData.features.forEach(item=>{
         console.log("e.features")
         console.log(e.features)  
 
-        // map1.setPaintProperty("ct", 'line-width', 1);
+        map1.setPaintProperty("ct", 'line-width', 1);
 
 
 var preName =  e.features[0].properties["precinctName"];
