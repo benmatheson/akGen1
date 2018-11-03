@@ -8,7 +8,7 @@ mapboxgl.accessToken =
     });
 
 
-    var alaskaPre = "data/alaska_precinct_gj_3.json";
+    var alaskaPre = "data/AKsimplified.geojson";
     var resData = "data/govgenSpread.json";
 
 
