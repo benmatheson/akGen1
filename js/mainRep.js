@@ -99,7 +99,7 @@ geoData.features.forEach(item=>{
     //   0.001, "blue",
           //   
 
-      -.1,  "#e8e40b",
+      -.1,  "#fcfc1e",
       0,   "#f7f7f7",
        .1, "#b2182b"
 

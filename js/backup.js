@@ -4,11 +4,7 @@ mapboxgl.accessToken =
 
     var popup = new mapboxgl.Popup({
         closeButton: true,
-        closeOnClick: true,
-        className: "popBox",
-        anchor: "bottom",
-        offset: 10
-
+        closeOnClick: true
     });
 
 
@@ -80,9 +76,7 @@ geoData.features.forEach(item=>{
             type: "geojson",
             // data: 'https://rawgit.com/benmatheson/2011_test/master/ras_ak_red.geojson'
             data: geoData,
-            buffer:30,
-            'generateId': true // this ensure that all features have unique ids
-
+            buffer:30
         });  //add source
 
 
@@ -92,55 +86,22 @@ geoData.features.forEach(item=>{
             source: "alaskaPre",
             paint: {
        "fill-opacity": .99,
-
-       "fill-color": 
-    ["case", ["==" , ["get", "winner"], "walker"],
-       
-       [ "interpolate",
+       "fill-color": [
+    
+      
+      
+        "interpolate",
         ["linear"],
-    ["get", "walkerPercent"],
-  
-     .33, "#fffeb6",
-      1,   "#fcfc1d"],
+    ["get", "rMargin"],
+    //   0.001, "blue",
+          //   
+
+      -.3,  "#2166ac",
+      0,   "#f8f6e9",
+       .3, "#b2182b"
 
 
-      ["case", ["==" , ["get", "winner"], "toien"],
-       
-      [ "interpolate",
-       ["linear"],
-   ["get", "toienPercent"],
- 
-    .33, "whitesmoke",
-     1,   "darkgreen"],
-
-     ["case", ["==" , ["get", "winner"], "dunleavy"],
-       
-     [ "interpolate",
-      ["linear"],
-  ["get", "dunleavyPercent"],
-
-   .33, "#f0b8b2",
-    1,   "#b2182b"],
-
-
-    ["case", ["==" , ["get", "winner"], "begich"],
-       
-    [ "interpolate",
-     ["linear"],
- ["get", "begichPercent"],
-
-  .33, "#bdc9e3",
-   1,   "#2166ac"],
-   "white"
-            ]]]],
-
-
-    "fill-outline-color": [
-                'case', ['boolean', ['feature-state', 'hover'], false],
-                '#333',
-                'rgba(0,0,0,.01)'
-              ]
-            
+      ]
             } //paint
 
 
@@ -149,26 +110,11 @@ geoData.features.forEach(item=>{
 
 
         }, "road-primary"); //add layer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }) //promiseall
 
 
 
 
-    let hoveredStateId = null;
 
     map1.on('mousemove', 'ct', function(e) {
         // Change the cursor style as a UI indicator.
@@ -211,20 +157,20 @@ const popTable =  `
 <tr>
 <td><span class="popName">Mark Begich </span> </td>
 <td><span class="popValue"> ${begich.toLocaleString()}  </span></td>
-<td><span class="popPercent">${(begichPercent) ? (begichPercent*100).toFixed(1) : 0 }%</span> </td>
+<td><span class="popPercent">${(begichPercent*100).toFixed(1)}%</span> </td>
 
 </tr>
 
 <tr>
 <td><span class="popName">Mike Dunleavy </span> </td>
 <td><span class="popValue"> ${dunleavy.toLocaleString()}  </span></td>
-<td><span class="popPercent">${(dunleavyPercent) ? (dunleavyPercent*100).toFixed(1): 0}%</span> </td>
+<td><span class="popPercent">${(dunleavyPercent*100).toFixed(1)}%</span> </td>
 
 </tr>
 <tr>
 <td><span class="popName">Bill Walker </span> </td>
 <td><span class="popValue"> ${walker.toLocaleString()}  </span></td>
-<td><span class="popPercent">${(walkerPercent) ? (walkerPercent*100).toFixed(1): 0}%</span> </td>
+<td><span class="popPercent">${(walkerPercent*100).toFixed(1)}%</span> </td>
 
 </tr>
 
@@ -236,47 +182,6 @@ const popTable =  `
       popup.setLngLat(e.lngLat)
       .setHTML(popTable)
       .addTo(map1);
-
-
-
-
-
-
-      map1.getCanvas().style.cursor = 'pointer';
-      if (e.features.length > 0) {
-        if (hoveredStateId) {
-          // set the hover attribute to false with feature state
-          map1.setFeatureState({
-            source: 'alaskaPre',
-            id: hoveredStateId
-          }, {
-            hover: false
-          });
-        }
-    
-        hoveredStateId = e.features[0].id;
-
-        console.log("HOVEREDSTEATE ID")
-        console.log(hoveredStateId)
-console.log(map1)
-        // set the hover attribute to true with feature state
-        map1.setFeatureState({
-          source: 'alaskaPre',
-          id: hoveredStateId
-        }, {
-          hover: true
-        });
-      }
-
-
-
-
-
-
-
-
-
-
 
 
     })
