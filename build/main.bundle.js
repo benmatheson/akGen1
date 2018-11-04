@@ -73,8 +73,12 @@ map1.on("load", function () {
       source: "alaskaPre",
       paint: {
         "fill-opacity": .99,
-        "fill-color": ["case", ["==", ["get", "winner"], "walker"], ["interpolate", ["linear"], ["get", "walkerPercent"], .33, "#fffeb6", 1, "#fcfc1d"], ["case", ["==", ["get", "winner"], "toien"], ["interpolate", ["linear"], ["get", "toienPercent"], .33, "whitesmoke", 1, "darkgreen"], ["case", ["==", ["get", "winner"], "dunleavy"], ["interpolate", ["linear"], ["get", "dunleavyPercent"], .33, "#f0b8b2", 1, "#b2182b"], ["case", ["==", ["get", "winner"], "begich"], ["interpolate", ["linear"], ["get", "begichPercent"], .33, "#bdc9e3", 1, "#2166ac"], "white"]]]],
-        "fill-outline-color": ['case', ['boolean', ['feature-state', 'hover'], false], '#333', 'rgba(0,0,0,.01)'] //paint
+        "fill-color": ["case", ["==", ["get", "winner"], "walker"], ["interpolate", ["linear"], ["get", "walkerPercent"], .33, "#fffeb6", 1, "#fcfc1d"], ["case", ["==", ["get", "winner"], "toien"], ["interpolate", ["linear"], ["get", "toienPercent"], .33, "whitesmoke", 1, "darkgreen"], ["case", ["==", ["get", "winner"], "dunleavy"], ["interpolate", ["linear"], ["get", "dunleavyPercent"], .33, "#f0b8b2", 1, "#b2182b"], ["case", ["==", ["get", "winner"], "begich"], ["interpolate", ["linear"], ["get", "begichPercent"], .33, "#bdc9e3", 1, "#2166ac"], "white"]]]] // "fill-outline-color": [
+        //             'case', ['boolean', ['feature-state', 'hover'], false],
+        //             '#333',
+        //             'rgba(0,0,0,.01)'
+        //           ]
+        //paint
 
       }
     }, "road-primary"); //add layer
@@ -97,31 +101,29 @@ map1.on("load", function () {
     console.log(walker);
     var popTable = "\n\n\n\n\n<table width=\"100%\">\n<tr class=\"popPre\"><td>" + preName + "</td></tr>\n<tr>\n<th class=\"thead\">Candidate</th>\n<th class=\"thead\">Votes</th> \n<th class=\"thead\">Pct.</th>\n</tr>\n\n\n<tr>\n<td><span class=\"popName\">Mark Begich </span> </td>\n<td><span class=\"popValue\"> " + begich.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (begichPercent ? (begichPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n\n<tr>\n<td><span class=\"popName\">Mike Dunleavy </span> </td>\n<td><span class=\"popValue\"> " + dunleavy.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (dunleavyPercent ? (dunleavyPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n<tr>\n<td><span class=\"popName\">Bill Walker </span> </td>\n<td><span class=\"popValue\"> " + walker.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (walkerPercent ? (walkerPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n\n\n</table>";
     popup.setLngLat(e.lngLat).setHTML(popTable).addTo(map1);
-    map1.getCanvas().style.cursor = 'pointer';
-
-    if (e.features.length > 0) {
-      if (hoveredStateId) {
-        // set the hover attribute to false with feature state
-        map1.setFeatureState({
-          source: 'alaskaPre',
-          id: hoveredStateId
-        }, {
-          hover: false
-        });
-      }
-
-      hoveredStateId = e.features[0].id;
-      console.log("HOVEREDSTEATE ID");
-      console.log(hoveredStateId);
-      console.log(map1); // set the hover attribute to true with feature state
-
-      map1.setFeatureState({
-        source: 'alaskaPre',
-        id: hoveredStateId
-      }, {
-        hover: true
-      });
-    }
+    map1.getCanvas().style.cursor = 'pointer'; //HOVER  
+    //       if (e.features.length > 0) {
+    //         if (hoveredStateId) {
+    //           // set the hover attribute to false with feature state
+    //           map1.setFeatureState({
+    //             source: 'alaskaPre',
+    //             id: hoveredStateId
+    //           }, {
+    //             hover: false
+    //           });
+    //         }
+    //         hoveredStateId = e.features[0].id;
+    //         console.log("HOVEREDSTEATE ID")
+    //         console.log(hoveredStateId)
+    // console.log(map1)
+    //         // set the hover attribute to true with feature state
+    //         map1.setFeatureState({
+    //           source: 'alaskaPre',
+    //           id: hoveredStateId
+    //         }, {
+    //           hover: true
+    //         });
+    //       }
   });
   map1.on('mouseout', 'ct', function (e) {
     popup.remove();

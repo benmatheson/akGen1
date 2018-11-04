@@ -126,7 +126,7 @@ geoData.features.forEach(item=>{
         console.log("e.features")
         console.log(e.features)  
 
-        map1.setPaintProperty("ct", 'line-width', 1);
+        // map1.setPaintProperty("ct", 'line-width', 1);
 
 
 var preName =  e.features[0].properties["precinctName"];

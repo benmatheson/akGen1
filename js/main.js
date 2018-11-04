@@ -139,14 +139,14 @@ geoData.features.forEach(item=>{
   .33, "#bdc9e3",
    1,   "#2166ac"],
    "white"
-            ]]]],
+            ]]]]
 
 
-    "fill-outline-color": [
-                'case', ['boolean', ['feature-state', 'hover'], false],
-                '#333',
-                'rgba(0,0,0,.01)'
-              ]
+    // "fill-outline-color": [
+    //             'case', ['boolean', ['feature-state', 'hover'], false],
+    //             '#333',
+    //             'rgba(0,0,0,.01)'
+    //           ]
             
             } //paint
 
@@ -250,30 +250,34 @@ const popTable =  `
 
 
       map1.getCanvas().style.cursor = 'pointer';
-      if (e.features.length > 0) {
-        if (hoveredStateId) {
-          // set the hover attribute to false with feature state
-          map1.setFeatureState({
-            source: 'alaskaPre',
-            id: hoveredStateId
-          }, {
-            hover: false
-          });
-        }
-    
-        hoveredStateId = e.features[0].id;
 
-        console.log("HOVEREDSTEATE ID")
-        console.log(hoveredStateId)
-console.log(map1)
-        // set the hover attribute to true with feature state
-        map1.setFeatureState({
-          source: 'alaskaPre',
-          id: hoveredStateId
-        }, {
-          hover: true
-        });
-      }
+
+
+    //HOVER  
+//       if (e.features.length > 0) {
+//         if (hoveredStateId) {
+//           // set the hover attribute to false with feature state
+//           map1.setFeatureState({
+//             source: 'alaskaPre',
+//             id: hoveredStateId
+//           }, {
+//             hover: false
+//           });
+//         }
+    
+//         hoveredStateId = e.features[0].id;
+
+//         console.log("HOVEREDSTEATE ID")
+//         console.log(hoveredStateId)
+// console.log(map1)
+//         // set the hover attribute to true with feature state
+//         map1.setFeatureState({
+//           source: 'alaskaPre',
+//           id: hoveredStateId
+//         }, {
+//           hover: true
+//         });
+//       }
 
 
 
