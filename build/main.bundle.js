@@ -1,14 +1,8 @@
 "use strict";
 
-var _apiKeys = require("../apiKeys.js");
+// import apiConfig from '../apiKeys.js';
+mapboxgl.accessToken = "pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA"; // mapboxgl.accessToken = apiConfig.mapboxKey;
 
-var _apiKeys2 = _interopRequireDefault(_apiKeys);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// mapboxgl.accessToken =
-// 	"pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA";
-mapboxgl.accessToken = _apiKeys2.default.mapboxKey;
 var popup = new mapboxgl.Popup({
   closeButton: true,
   closeOnClick: true,

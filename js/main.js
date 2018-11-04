@@ -1,11 +1,11 @@
-import apiConfig from '../apiKeys.js';
+// import apiConfig from '../apiKeys.js';
 
 
-// mapboxgl.accessToken =
-// 	"pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA";
+mapboxgl.accessToken =
+	"pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA";
 
 
-    mapboxgl.accessToken = apiConfig.mapboxKey;
+    // mapboxgl.accessToken = apiConfig.mapboxKey;
 
 
 
