@@ -128,30 +128,54 @@ map1.on("load", function () {
   map1.on('mouseout', 'ct', function (e) {
     popup.remove();
   }); //////for the mobile
-
-  map1.on('click', 'ct', function (e) {
-    // Change the cursor style as a UI indicator.
-    e.preventDefault();
-    console.log('CLICKING');
-    console.log(e.lngLat);
-    map1.getCanvas().style.cursor = 'pointer';
-    console.log('e.features[0]');
-    console.log(e.features[0]);
-    var coordinates = e.features[0].geometry.coordinates[0][0];
-    console.log(coordinates);
-    var preName = e.features[0].properties["precinctName"];
-    var walker = e.features[0].properties["Walker/Mallott"];
-    var dunleavy = e.features[0].properties["Dunleavy/Meyer"];
-    var begich = e.features[0].properties["Begich/Call"];
-    var begichPercent = e.features[0].properties["begichPercent"];
-    var dunleavyPercent = e.features[0].properties["dunleavyPercent"];
-    var walkerPercent = e.features[0].properties["walkerPercent"];
-    console.log(walker);
-    var popTable = "\n\n\n\n\n<table width=\"100%\">\n<tr class=\"popPre\"><td>" + preName + "</td></tr>\n<tr>\n<th class=\"thead\">Candidate</th>\n<th class=\"thead\">Votes</th> \n<th class=\"thead\">Pct.</th>\n</tr>\n\n\n<tr>\n<td><span class=\"popName\">Mark Begich </span> </td>\n<td><span class=\"popValue\"> " + begich.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (begichPercent * 100).toFixed(1) + "%</span> </td>\n\n</tr>\n\n<tr>\n<td><span class=\"popName\">Mike Dunleavy </span> </td>\n<td><span class=\"popValue\"> " + dunleavy.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (dunleavyPercent * 100).toFixed(1) + "%</span> </td>\n\n</tr>\n<tr>\n<td><span class=\"popName\">Bill Walker </span> </td>\n<td><span class=\"popValue\"> " + walker.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (walkerPercent * 100).toFixed(1) + "%</span> </td>\n\n</tr>\n\n\n</table>";
-    console.log('PUPUPS');
-    console.log(popup);
-    popup.setLngLat(e.lngLat).setHTML(popTable).addTo(map1);
-  });
+  // map1.on('click', 'ct', function(e) {
+  //     // Change the cursor style as a UI indicator.
+  // e.preventDefault();
+  //     console.log('CLICKING')
+  //     console.log(e.lngLat)
+  //     map1.getCanvas().style.cursor = 'pointer';
+  // console.log('e.features[0]')
+  //     console.log(e.features[0])
+  //     var coordinates = e.features[0].geometry.coordinates[0][0];
+  //     console.log(coordinates)
+  // var preName =  e.features[0].properties["precinctName"];
+  //   var walker =   e.features[0].properties["Walker/Mallott"];
+  //   var dunleavy =   e.features[0].properties["Dunleavy/Meyer"];
+  //   var begich =   e.features[0].properties["Begich/Call"];
+  //   var begichPercent = e.features[0].properties["begichPercent"]
+  //   var dunleavyPercent = e.features[0].properties["dunleavyPercent"]
+  //   var walkerPercent = e.features[0].properties["walkerPercent"]
+  //   console.log(walker)
+  // const popTable =  `
+  // <table width="100%">
+  // <tr class="popPre"><td>${preName}</td></tr>
+  // <tr>
+  // <th class="thead">Candidate</th>
+  // <th class="thead">Votes</th> 
+  // <th class="thead">Pct.</th>
+  // </tr>
+  // <tr>
+  // <td><span class="popName">Mark Begich </span> </td>
+  // <td><span class="popValue"> ${begich.toLocaleString()}  </span></td>
+  // <td><span class="popPercent">${(begichPercent*100).toFixed(1)}%</span> </td>
+  // </tr>
+  // <tr>
+  // <td><span class="popName">Mike Dunleavy </span> </td>
+  // <td><span class="popValue"> ${dunleavy.toLocaleString()}  </span></td>
+  // <td><span class="popPercent">${(dunleavyPercent*100).toFixed(1)}%</span> </td>
+  // </tr>
+  // <tr>
+  // <td><span class="popName">Bill Walker </span> </td>
+  // <td><span class="popValue"> ${walker.toLocaleString()}  </span></td>
+  // <td><span class="popPercent">${(walkerPercent*100).toFixed(1)}%</span> </td>
+  // </tr>
+  // </table>`
+  // console.log('PUPUPS')
+  // console.log(popup)
+  //   popup.setLngLat(e.lngLat)
+  //   .setHTML(popTable)
+  //   .addTo(map1);
+  // })
 }); //onload
 // road-primary
 //python -m SimpleHTTPServer 1337

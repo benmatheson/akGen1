@@ -314,82 +314,82 @@ const popTable =  `
 
 
 
-map1.on('click', 'ct', function(e) {
-    // Change the cursor style as a UI indicator.
-e.preventDefault();
-    console.log('CLICKING')
-    console.log(e.lngLat)
+// map1.on('click', 'ct', function(e) {
+//     // Change the cursor style as a UI indicator.
+// e.preventDefault();
+//     console.log('CLICKING')
+//     console.log(e.lngLat)
 
-    map1.getCanvas().style.cursor = 'pointer';
-console.log('e.features[0]')
-    console.log(e.features[0])
+//     map1.getCanvas().style.cursor = 'pointer';
+// console.log('e.features[0]')
+//     console.log(e.features[0])
 
-    var coordinates = e.features[0].geometry.coordinates[0][0];
-    console.log(coordinates)
-
-
-var preName =  e.features[0].properties["precinctName"];
-
-  var walker =   e.features[0].properties["Walker/Mallott"];
-  var dunleavy =   e.features[0].properties["Dunleavy/Meyer"];
-  var begich =   e.features[0].properties["Begich/Call"];
-
-  var begichPercent = e.features[0].properties["begichPercent"]
-  var dunleavyPercent = e.features[0].properties["dunleavyPercent"]
-  var walkerPercent = e.features[0].properties["walkerPercent"]
+//     var coordinates = e.features[0].geometry.coordinates[0][0];
+//     console.log(coordinates)
 
 
-  console.log(walker)
+// var preName =  e.features[0].properties["precinctName"];
+
+//   var walker =   e.features[0].properties["Walker/Mallott"];
+//   var dunleavy =   e.features[0].properties["Dunleavy/Meyer"];
+//   var begich =   e.features[0].properties["Begich/Call"];
+
+//   var begichPercent = e.features[0].properties["begichPercent"]
+//   var dunleavyPercent = e.features[0].properties["dunleavyPercent"]
+//   var walkerPercent = e.features[0].properties["walkerPercent"]
 
 
-const popTable =  `
+//   console.log(walker)
 
 
-
-
-<table width="100%">
-<tr class="popPre"><td>${preName}</td></tr>
-<tr>
-<th class="thead">Candidate</th>
-<th class="thead">Votes</th> 
-<th class="thead">Pct.</th>
-</tr>
-
-
-<tr>
-<td><span class="popName">Mark Begich </span> </td>
-<td><span class="popValue"> ${begich.toLocaleString()}  </span></td>
-<td><span class="popPercent">${(begichPercent*100).toFixed(1)}%</span> </td>
-
-</tr>
-
-<tr>
-<td><span class="popName">Mike Dunleavy </span> </td>
-<td><span class="popValue"> ${dunleavy.toLocaleString()}  </span></td>
-<td><span class="popPercent">${(dunleavyPercent*100).toFixed(1)}%</span> </td>
-
-</tr>
-<tr>
-<td><span class="popName">Bill Walker </span> </td>
-<td><span class="popValue"> ${walker.toLocaleString()}  </span></td>
-<td><span class="popPercent">${(walkerPercent*100).toFixed(1)}%</span> </td>
-
-</tr>
-
-
-</table>`
-
-console.log('PUPUPS')
-console.log(popup)
+// const popTable =  `
 
 
 
-  popup.setLngLat(e.lngLat)
-  .setHTML(popTable)
-  .addTo(map1);
+
+// <table width="100%">
+// <tr class="popPre"><td>${preName}</td></tr>
+// <tr>
+// <th class="thead">Candidate</th>
+// <th class="thead">Votes</th> 
+// <th class="thead">Pct.</th>
+// </tr>
 
 
-})
+// <tr>
+// <td><span class="popName">Mark Begich </span> </td>
+// <td><span class="popValue"> ${begich.toLocaleString()}  </span></td>
+// <td><span class="popPercent">${(begichPercent*100).toFixed(1)}%</span> </td>
+
+// </tr>
+
+// <tr>
+// <td><span class="popName">Mike Dunleavy </span> </td>
+// <td><span class="popValue"> ${dunleavy.toLocaleString()}  </span></td>
+// <td><span class="popPercent">${(dunleavyPercent*100).toFixed(1)}%</span> </td>
+
+// </tr>
+// <tr>
+// <td><span class="popName">Bill Walker </span> </td>
+// <td><span class="popValue"> ${walker.toLocaleString()}  </span></td>
+// <td><span class="popPercent">${(walkerPercent*100).toFixed(1)}%</span> </td>
+
+// </tr>
+
+
+// </table>`
+
+// console.log('PUPUPS')
+// console.log(popup)
+
+
+
+//   popup.setLngLat(e.lngLat)
+//   .setHTML(popTable)
+//   .addTo(map1);
+
+
+// })
 
 
 
