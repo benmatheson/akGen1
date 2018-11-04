@@ -1,0 +1,34 @@
+{
+  "name": "akgen1",
+  "version": "1.0.0",
+  "description": "akgen1 description",
+  "main": "main.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    
+
+    "babel": "babel --presets env js/main.js -o build/main.bundle.js",
+    "babelFish": "babel --presets env js/mainFish.js -o build/mainFish.bundle.js",
+    "babelRep": "babel --presets env js/mainRep.js -o build/mainRep.bundle.js"
+
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benmatheson/akGen1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benmatheson/akGen1/issues"
+  },
+  "homepage": "https://github.com/benmatheson/akGen1#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.2",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}

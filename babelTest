@@ -1,0 +1,38 @@
+
+npm init
+
+
+npm install --save-dev @babel/core @babel/cli
+
+
+**maybe din't beoe 
+npm install babel-preset-es2015 --save-dev
+
+***
+
+
+
+
+**now I'm installing this"
+
+npm install --save-dev @babel/preset-env
+
+**
+
+
+
+
+
+and then
+
+"scripts": {
+    "babel": "babel --presets es2015 js/main.js -o build/main.bundle.js",
+    "start": "http-server"
+},
+
+
+
+
+ npm run babel
+// "babel": "babel --presets env js/main.js js/mainFish.js -o build/main.bundle.js build/mainFish.bundle.js"
+    // "babel": "babel --presets env js/main.js js/mainFish.js -o build/main.bundle.js build/mainFish.bundle.js"

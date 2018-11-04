@@ -1,5 +1,12 @@
-mapboxgl.accessToken =
-	"pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA";
+import apiConfig from '../apiKeys.js';
+
+
+// mapboxgl.accessToken =
+// 	"pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA";
+
+
+    mapboxgl.accessToken = apiConfig.mapboxKey;
+
 
 
     var popup = new mapboxgl.Popup({
@@ -31,7 +38,7 @@ mapboxgl.accessToken =
         },
         // style: 'mapbox://styles/benmatheson/cjh2yaf301jjm2sru7r1uz7n7',
     
-        center: [-150, 64.4],
+        center: [-152, 64.4],
         minzoom: 6,
         zoom: 3.2, 
         maxzoom: 12
