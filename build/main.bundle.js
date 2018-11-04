@@ -5,10 +5,10 @@ mapboxgl.accessToken = "pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtb
 
 var popup = new mapboxgl.Popup({
   closeButton: true,
-  closeOnClick: true,
-  className: "popBox",
-  anchor: "bottom",
-  offset: 10
+  closeOnClick: true // className: "popBox",
+  // anchor: "bottom",
+  // offset: 10
+
 });
 var alaskaPre = "data/AKsimplified.geojson";
 var resData = "data/govgenSpread.json";

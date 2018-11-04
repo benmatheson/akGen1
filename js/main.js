@@ -11,10 +11,10 @@ mapboxgl.accessToken =
 
     var popup = new mapboxgl.Popup({
         closeButton: true,
-        closeOnClick: true,
-        className: "popBox",
-        anchor: "bottom",
-        offset: 10
+        closeOnClick: true
+        // className: "popBox",
+        // anchor: "bottom",
+        // offset: 10
 
     });
 
