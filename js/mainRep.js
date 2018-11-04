@@ -158,14 +158,14 @@ const popTable =  `
 
 
 <tr>
-<td><span class="popName">Mark Begich </span> </td>
+<td><span class="popName">Mark Begich MOUSE </span> </td>
 <td><span class="popValue"> ${begich.toLocaleString()}  </span></td>
 <td><span class="popPercent">${(begichPercent*100).toFixed(1)}%</span> </td>
 
 </tr>
 
 <tr>
-<td><span class="popName">Mike Dunleavy </span> </td>
+<td><span class="popName">Mike Dunleavy  mOUSE </span> </td>
 <td><span class="popValue"> ${dunleavy.toLocaleString()}  </span></td>
 <td><span class="popPercent">${(dunleavyPercent*100).toFixed(1)}%</span> </td>
 
@@ -254,20 +254,20 @@ const popTable =  `
 
 
 <tr>
-<td><span class="popName">Mark Begich </span> </td>
+<td><span class="popName">Mark Begich CLICK </span> </td>
 <td><span class="popValue"> ${begich.toLocaleString()}  </span></td>
 <td><span class="popPercent">${(begichPercent*100).toFixed(1)}%</span> </td>
 
 </tr>
 
 <tr>
-<td><span class="popName">Mike Dunleavy </span> </td>
+<td><span class="popName">Mike Dunleavy CLICK </span> </td>
 <td><span class="popValue"> ${dunleavy.toLocaleString()}  </span></td>
 <td><span class="popPercent">${(dunleavyPercent*100).toFixed(1)}%</span> </td>
 
 </tr>
 <tr>
-<td><span class="popName">Bill Walker </span> </td>
+<td><span class="popName">Bill Walker CLICK </span> </td>
 <td><span class="popValue"> ${walker.toLocaleString()}  </span></td>
 <td><span class="popPercent">${(walkerPercent*100).toFixed(1)}%</span> </td>
 
