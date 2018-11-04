@@ -216,7 +216,7 @@ const popTable =  `
 
 
 <tr>
-<td><span class="popName">Mark Begich </span> </td>
+<td><span class="popName">Mark Begich MOUSE </span> </td>
 <td><span class="popValue"> ${begich.toLocaleString()}  </span></td>
 <td><span class="popPercent">${(begichPercent) ? (begichPercent*100).toFixed(1) : 0 }%</span> </td>
 
