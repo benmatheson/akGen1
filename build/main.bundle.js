@@ -1,9 +1,7 @@
 "use strict";
 
 // import apiConfig from '../apiKeys.js';
-//YOYO855
-// mapboxgl.accessToken =
-// 	"pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA";
+//YOYO903
 mapboxgl.accessToken = config.mb;
 var popup = new mapboxgl.Popup({
   closeButton: true,
