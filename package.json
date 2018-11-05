@@ -10,7 +10,8 @@
     "babel": "babel --presets env js/main.js -o build/main.bundle.js",
     "babelFish": "babel --presets env js/mainFish.js -o build/mainFish.bundle.js",
     "babelRep": "babel --presets env js/mainRep.js -o build/mainRep.bundle.js",
-    "babelB": "browserify --presets env build/main.bundle.js -o build/main.bundle1.js"
+    "babelB": "browserify --presets env build/main.bundle.js -o build/main.bundle1.js",
+    "start": "python -m SimpleHTTPServer 1337"
   },
   "repository": {
     "type": "git",

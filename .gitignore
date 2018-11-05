@@ -1,2 +1,3 @@
 apiKeys.*
 config.js
+.env
