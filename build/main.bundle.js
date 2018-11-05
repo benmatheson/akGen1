@@ -2,7 +2,7 @@
 
 // import apiConfig from '../apiKeys.js';
 //YOYO903
-mapboxgl.accessToken = config.mb;
+mapboxgl.accessToken = mb;
 var popup = new mapboxgl.Popup({
   closeButton: true,
   closeOnClick: true // className: "popBox",
