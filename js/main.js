@@ -3,7 +3,7 @@
 //YOYO903
 
 
-    mapboxgl.accessToken = mb;
+    mapboxgl.accessToken = process.env.mb;
 
 
 
