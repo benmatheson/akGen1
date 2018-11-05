@@ -107,8 +107,8 @@ geoData.features.forEach(item=>{
         ["linear"],
     ["get", "galvinPercent"],
   
-     .33, "#fffeb6",
-      1,   "#fcfc1d"],
+    .5, "#ffffbf",
+    1,   "#FFD700"],
 
 
       ["case", ["==" , ["get", "winner"], "young"],
@@ -117,8 +117,12 @@ geoData.features.forEach(item=>{
        ["linear"],
    ["get", "youngPercent"],
  
-    .33, "whitesmoke",
-     1,   "red"],"white"
+   .5, "#fddbc7",
+   .66, "#b2182b",
+    1,   "#67001f"],
+     
+     
+     "white"
 
 
 ]]

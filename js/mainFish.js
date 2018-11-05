@@ -107,8 +107,8 @@ geoData.features.forEach(item=>{
         ["linear"],
     ["get", "noPercent"],
   
-     .33, "#fffeb6",
-      1,   "orange"],
+     .5, "#fddbc7",
+      1,   "#67001f"],
 
 
       ["case", ["==" , ["get", "winner"], "yes"],
@@ -117,8 +117,8 @@ geoData.features.forEach(item=>{
        ["linear"],
    ["get", "yesPercent"],
  
-    .33, "whitesmoke",
-     1,   "purple"],
+    .5, "#d9ef8b",
+     1,   "#006837"],
 
    "white"
             ]]

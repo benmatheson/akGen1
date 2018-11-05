@@ -73,7 +73,7 @@ map1.on("load", function () {
       source: "alaskaPre",
       paint: {
         "fill-opacity": .99,
-        "fill-color": ["case", ["==", ["get", "winner"], "Galvin"], ["interpolate", ["linear"], ["get", "galvinPercent"], .33, "#fffeb6", 1, "#fcfc1d"], ["case", ["==", ["get", "winner"], "young"], ["interpolate", ["linear"], ["get", "youngPercent"], .33, "whitesmoke", 1, "red"], "white"]] // "fill-outline-color": [
+        "fill-color": ["case", ["==", ["get", "winner"], "Galvin"], ["interpolate", ["linear"], ["get", "galvinPercent"], .5, "#ffffbf", 1, "#FFD700"], ["case", ["==", ["get", "winner"], "young"], ["interpolate", ["linear"], ["get", "youngPercent"], .5, "#fddbc7", .66, "#b2182b", 1, "#67001f"], "white"]] // "fill-outline-color": [
         //             'case', ['boolean', ['feature-state', 'hover'], false],
         //             '#333',
         //             'rgba(0,0,0,.01)'

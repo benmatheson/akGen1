@@ -107,8 +107,8 @@ geoData.features.forEach(item=>{
         ["linear"],
     ["get", "walkerPercent"],
   
-     .33, "#fffeb6",
-      1,   "#fcfc1d"],
+     .33, "#ffffbf",
+      1,   "#FFD700"],
 
 
       ["case", ["==" , ["get", "winner"], "toien"],
@@ -126,8 +126,9 @@ geoData.features.forEach(item=>{
       ["linear"],
   ["get", "dunleavyPercent"],
 
-   .33, "#f0b8b2",
-    1,   "#b2182b"],
+   .33, "#fddbc7",
+   .66, "#b2182b",
+    1,   "#67001f"],
 
 
     ["case", ["==" , ["get", "winner"], "begich"],
@@ -136,8 +137,9 @@ geoData.features.forEach(item=>{
      ["linear"],
  ["get", "begichPercent"],
 
-  .33, "#bdc9e3",
-   1,   "#2166ac"],
+  .33, "#d1e5f0",
+  .66, "#2166ac",
+   1,   "#053061"],
    "white"
             ]]]]
 
