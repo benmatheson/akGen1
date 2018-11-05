@@ -3,7 +3,7 @@
 //YOYO903
 
 
-    mapboxgl.accessToken = config.mb;
+    mapboxgl.accessToken = mb;
 
 
 
