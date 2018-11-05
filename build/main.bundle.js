@@ -73,7 +73,7 @@ map1.on("load", function () {
       source: "alaskaPre",
       paint: {
         "fill-opacity": .99,
-        "fill-color": ["case", ["==", ["get", "winner"], "walker"], ["interpolate", ["linear"], ["get", "walkerPercent"], .33, "#fffeb6", 1, "#fcfc1d"], ["case", ["==", ["get", "winner"], "toien"], ["interpolate", ["linear"], ["get", "toienPercent"], .33, "whitesmoke", 1, "darkpurple"], ["case", ["==", ["get", "winner"], "dunleavy"], ["interpolate", ["linear"], ["get", "dunleavyPercent"], .33, "#f0b8b2", 1, "#b2182b"], ["case", ["==", ["get", "winner"], "begich"], ["interpolate", ["linear"], ["get", "begichPercent"], .33, "#bdc9e3", 1, "#2166ac"], "white"]]]] // "fill-outline-color": [
+        "fill-color": ["case", ["==", ["get", "winner"], "walker"], ["interpolate", ["linear"], ["get", "walkerPercent"], .33, "#fffeb6", 1, "#fcfc1d"], ["case", ["==", ["get", "winner"], "toien"], ["interpolate", ["linear"], ["get", "toienPercent"], .33, "whitesmoke", 1, "purple"], ["case", ["==", ["get", "winner"], "dunleavy"], ["interpolate", ["linear"], ["get", "dunleavyPercent"], .33, "#f0b8b2", 1, "#b2182b"], ["case", ["==", ["get", "winner"], "begich"], ["interpolate", ["linear"], ["get", "begichPercent"], .33, "#bdc9e3", 1, "#2166ac"], "white"]]]] // "fill-outline-color": [
         //             'case', ['boolean', ['feature-state', 'hover'], false],
         //             '#333',
         //             'rgba(0,0,0,.01)'

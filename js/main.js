@@ -118,7 +118,7 @@ geoData.features.forEach(item=>{
    ["get", "toienPercent"],
  
     .33, "whitesmoke",
-     1,   "darkpurple"],
+     1,   "purple"],
 
      ["case", ["==" , ["get", "winner"], "dunleavy"],
        
