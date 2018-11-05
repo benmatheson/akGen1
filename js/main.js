@@ -1,11 +1,9 @@
 // import apiConfig from '../apiKeys.js';
 
-
-mapboxgl.accessToken =
-	"pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA";
+//YOYO903
 
 
-    // mapboxgl.accessToken = apiConfig.mapboxKey;
+    mapboxgl.accessToken = config.mb;
 
 
 
@@ -205,7 +203,7 @@ const popTable =  `
 
 
 
-<p class="popPre">${preName}</p>
+
 
 <table width="100%">
 <tr>

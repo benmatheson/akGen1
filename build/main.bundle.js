@@ -1,8 +1,10 @@
 "use strict";
 
 // import apiConfig from '../apiKeys.js';
-mapboxgl.accessToken = "pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA"; // mapboxgl.accessToken = apiConfig.mapboxKey;
-
+//YOYO855
+// mapboxgl.accessToken =
+// 	"pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA";
+mapboxgl.accessToken = config.mb;
 var popup = new mapboxgl.Popup({
   closeButton: true,
   closeOnClick: true // className: "popBox",
@@ -99,7 +101,7 @@ map1.on("load", function () {
     var dunleavyPercent = e.features[0].properties["dunleavyPercent"];
     var walkerPercent = e.features[0].properties["walkerPercent"];
     console.log(walker);
-    var popTable = "\n\n\n\n<p class=\"popPre\">" + preName + "</p>\n\n<table width=\"100%\">\n<tr>\n<th class=\"thead\">Candidate</th>\n<th class=\"thead\">Votes</th> \n<th class=\"thead\">Pct.</th>\n</tr>\n\n\n<tr>\n<td><span class=\"popName\">Mark Begich</span> </td>\n<td><span class=\"popValue\"> " + begich.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (begichPercent ? (begichPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n\n<tr>\n<td><span class=\"popName\">Mike Dunleavy </span> </td>\n<td><span class=\"popValue\"> " + dunleavy.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (dunleavyPercent ? (dunleavyPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n<tr>\n<td><span class=\"popName\">Bill Walker </span> </td>\n<td><span class=\"popValue\"> " + walker.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (walkerPercent ? (walkerPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n\n\n</table>";
+    var popTable = "\n\n\n\n\n\n<table width=\"100%\">\n<tr>\n<th class=\"thead\">Candidate</th>\n<th class=\"thead\">Votes</th> \n<th class=\"thead\">Pct.</th>\n</tr>\n\n\n<tr>\n<td><span class=\"popName\">Mark Begich</span> </td>\n<td><span class=\"popValue\"> " + begich.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (begichPercent ? (begichPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n\n<tr>\n<td><span class=\"popName\">Mike Dunleavy </span> </td>\n<td><span class=\"popValue\"> " + dunleavy.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (dunleavyPercent ? (dunleavyPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n<tr>\n<td><span class=\"popName\">Bill Walker </span> </td>\n<td><span class=\"popValue\"> " + walker.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (walkerPercent ? (walkerPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n\n\n</table>";
     popup.setLngLat(e.lngLat).setHTML(popTable).addTo(map1);
     map1.getCanvas().style.cursor = 'pointer'; //HOVER  
     //       if (e.features.length > 0) {
