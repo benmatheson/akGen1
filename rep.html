@@ -13,7 +13,13 @@
 
         <!-- <link rel="stylesheet" href="css/normalize.css"> -->
         <link rel="stylesheet" href="css/main.css">
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script> -->
 
+
+
+        <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.min.js"></script>
+
+        <script src="https://unpkg.com/unfetch/polyfill"></script>
 
         <script src='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css' rel='stylesheet' />
@@ -22,11 +28,18 @@
     </head>
     <body>
 
-        <div class="map" id="map1"></div>
+    
+        <div class= "map" id="map1"></div>
 
+        
 
+    
         <!-- <script src="js/plugins.js"></script> -->
-        <script src="js/mainRep.js"></script>
+        <!-- <script type="module" src="js/main.js"></script> -->
+        <script src="build/mainRep.bundle.js"></script>
+
+
+
 
         </body>
 </html>

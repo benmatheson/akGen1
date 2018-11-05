@@ -1,15 +1,26 @@
+// import apiConfig from '../apiKeys.js';
+
+
 mapboxgl.accessToken =
 	"pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA";
+
+
+    // mapboxgl.accessToken = apiConfig.mapboxKey;
+
 
 
     var popup = new mapboxgl.Popup({
         closeButton: true,
         closeOnClick: true
+        // className: "popBox",
+        // anchor: "bottom",
+        // offset: 10
+
     });
 
 
-    var alaskaPre = "data/alaska_precinct_gj_3.json";
-    var resData = "data/govgenSpread.json";
+    var alaskaPre = "data/AKsimplified.geojson";
+    var resData = "data/fishgenSpread.json";
 
 
     var map1 = new mapboxgl.Map({
@@ -19,10 +30,6 @@ mapboxgl.accessToken =
         // style: "mapbox://styles/mapbox/light-v9",
         style:  "mapbox://styles/benmatheson/cjo060m9v05hx2rp2yd4d3yiw",       // style: "mapbox://styles/mapbox/basic-v9",
 
-
-
-
-        
         pitch: 0,
     
         transition: {
@@ -31,13 +38,14 @@ mapboxgl.accessToken =
         },
         // style: 'mapbox://styles/benmatheson/cjh2yaf301jjm2sru7r1uz7n7',
     
-        center: [-150, 65],
+        center: [-152, 64.4],
         minzoom: 6,
-        zoom: 3.6, 
+        zoom: 3.2, 
         maxzoom: 12
     });
 
     map1.scrollZoom.disable();
+    // map1.touchZoomRotate.disable();
     map1.addControl(new mapboxgl.NavigationControl());
 
     map1.on("load", function() {
@@ -79,7 +87,9 @@ geoData.features.forEach(item=>{
             type: "geojson",
             // data: 'https://rawgit.com/benmatheson/2011_test/master/ras_ak_red.geojson'
             data: geoData,
-            buffer:30
+            buffer:30,
+            'generateId': true // this ensure that all features have unique ids
+
         });  //add source
 
 
@@ -89,22 +99,37 @@ geoData.features.forEach(item=>{
             source: "alaskaPre",
             paint: {
        "fill-opacity": .99,
-       "fill-color": [
-    
-      
-      
-        "interpolate",
+
+       "fill-color": 
+    ["case", ["==" , ["get", "winner"], "no"],
+       
+       [ "interpolate",
         ["linear"],
-    ["get", "rMargin"],
-    //   0.001, "blue",
-          //   
-
-      -.1,  "#f1a340",
-      0,   "#f7f7f7",
-       .1, "#998ec3"
+    ["get", "noPercent"],
+  
+     .33, "#fffeb6",
+      1,   "orange"],
 
 
-      ]
+      ["case", ["==" , ["get", "winner"], "yes"],
+       
+      [ "interpolate",
+       ["linear"],
+   ["get", "yesPercent"],
+ 
+    .33, "whitesmoke",
+     1,   "purple"],
+
+   "white"
+            ]]
+
+
+    // "fill-outline-color": [
+    //             'case', ['boolean', ['feature-state', 'hover'], false],
+    //             '#333',
+    //             'rgba(0,0,0,.01)'
+    //           ]
+            
             } //paint
 
 
@@ -113,11 +138,26 @@ geoData.features.forEach(item=>{
 
 
         }, "road-primary"); //add layer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }) //promiseall
 
 
 
 
+    let hoveredStateId = null;
 
     map1.on('mousemove', 'ct', function(e) {
         // Change the cursor style as a UI indicator.
@@ -126,21 +166,16 @@ geoData.features.forEach(item=>{
         console.log("e.features")
         console.log(e.features)  
 
-        map1.setPaintProperty("ct", 'line-width', 1);
+        // map1.setPaintProperty("ct", 'line-width', 1);
 
 
 var preName =  e.features[0].properties["precinctName"];
 
-      var walker =   e.features[0].properties["Walker/Mallott"];
-      var dunleavy =   e.features[0].properties["Dunleavy/Meyer"];
-      var begich =   e.features[0].properties["Begich/Call"];
+      var no =   e.features[0].properties["NO"];
+      var yes =   e.features[0].properties["YES"];
 
-      var begichPercent = e.features[0].properties["begichPercent"]
-      var dunleavyPercent = e.features[0].properties["dunleavyPercent"]
-      var walkerPercent = e.features[0].properties["walkerPercent"]
-
-
-      console.log(walker)
+      var noPercent = e.features[0].properties["noPercent"]
+      var yesPercent = e.features[0].properties["yesPercent"]
 
 
 const popTable =  `
@@ -151,32 +186,25 @@ const popTable =  `
 <table width="100%">
 <tr class="popPre"><td>${preName}</td></tr>
 <tr>
-<th class="thead">Candidate</th>
+<th class="thead">Option</th>
 <th class="thead">Votes</th> 
 <th class="thead">Pct.</th>
 </tr>
 
 
 <tr>
-<td><span class="popName">Mark Begich </span> </td>
-<td><span class="popValue"> ${begich.toLocaleString()}  </span></td>
-<td><span class="popPercent">${(begichPercent*100).toFixed(1)}%</span> </td>
+<td><span class="popName">Yes</span> </td>
+<td><span class="popValue"> ${yes.toLocaleString()}  </span></td>
+<td><span class="popPercent">${(yesPercent) ? (yesPercent*100).toFixed(1) : 0 }%</span> </td>
 
 </tr>
 
 <tr>
-<td><span class="popName">Mike Dunleavy </span> </td>
-<td><span class="popValue"> ${dunleavy.toLocaleString()}  </span></td>
-<td><span class="popPercent">${(dunleavyPercent*100).toFixed(1)}%</span> </td>
+<td><span class="popName">No </span> </td>
+<td><span class="popValue"> ${no.toLocaleString()}  </span></td>
+<td><span class="popPercent">${(noPercent) ? (noPercent*100).toFixed(1): 0}%</span> </td>
 
 </tr>
-<tr>
-<td><span class="popName">Bill Walker </span> </td>
-<td><span class="popValue"> ${walker.toLocaleString()}  </span></td>
-<td><span class="popPercent">${(walkerPercent*100).toFixed(1)}%</span> </td>
-
-</tr>
-
 
 </table>`
 
@@ -185,6 +213,51 @@ const popTable =  `
       popup.setLngLat(e.lngLat)
       .setHTML(popTable)
       .addTo(map1);
+
+
+
+
+
+
+      map1.getCanvas().style.cursor = 'pointer';
+
+
+
+    //HOVER  
+//       if (e.features.length > 0) {
+//         if (hoveredStateId) {
+//           // set the hover attribute to false with feature state
+//           map1.setFeatureState({
+//             source: 'alaskaPre',
+//             id: hoveredStateId
+//           }, {
+//             hover: false
+//           });
+//         }
+    
+//         hoveredStateId = e.features[0].id;
+
+//         console.log("HOVEREDSTEATE ID")
+//         console.log(hoveredStateId)
+// console.log(map1)
+//         // set the hover attribute to true with feature state
+//         map1.setFeatureState({
+//           source: 'alaskaPre',
+//           id: hoveredStateId
+//         }, {
+//           hover: true
+//         });
+//       }
+
+
+
+
+
+
+
+
+
+
 
 
     })
@@ -211,82 +284,82 @@ const popTable =  `
 
 
 
-map1.on('click', 'ct', function(e) {
-    // Change the cursor style as a UI indicator.
-e.preventDefault();
-    console.log('CLICKING')
-    console.log(e.lngLat)
+// map1.on('click', 'ct', function(e) {
+//     // Change the cursor style as a UI indicator.
+// e.preventDefault();
+//     console.log('CLICKING')
+//     console.log(e.lngLat)
 
-    map1.getCanvas().style.cursor = 'pointer';
-console.log('e.features[0]')
-    console.log(e.features[0])
+//     map1.getCanvas().style.cursor = 'pointer';
+// console.log('e.features[0]')
+//     console.log(e.features[0])
 
-    var coordinates = e.features[0].geometry.coordinates[0][0];
-    console.log(coordinates)
-
-
-var preName =  e.features[0].properties["precinctName"];
-
-  var walker =   e.features[0].properties["Walker/Mallott"];
-  var dunleavy =   e.features[0].properties["Dunleavy/Meyer"];
-  var begich =   e.features[0].properties["Begich/Call"];
-
-  var begichPercent = e.features[0].properties["begichPercent"]
-  var dunleavyPercent = e.features[0].properties["dunleavyPercent"]
-  var walkerPercent = e.features[0].properties["walkerPercent"]
+//     var coordinates = e.features[0].geometry.coordinates[0][0];
+//     console.log(coordinates)
 
 
-  console.log(walker)
+// var preName =  e.features[0].properties["precinctName"];
+
+//   var walker =   e.features[0].properties["Walker/Mallott"];
+//   var dunleavy =   e.features[0].properties["Dunleavy/Meyer"];
+//   var begich =   e.features[0].properties["Begich/Call"];
+
+//   var begichPercent = e.features[0].properties["begichPercent"]
+//   var dunleavyPercent = e.features[0].properties["dunleavyPercent"]
+//   var walkerPercent = e.features[0].properties["walkerPercent"]
 
 
-const popTable =  `
+//   console.log(walker)
 
 
-
-
-<table width="100%">
-<tr class="popPre"><td>${preName}</td></tr>
-<tr>
-<th class="thead">Candidate</th>
-<th class="thead">Votes</th> 
-<th class="thead">Pct.</th>
-</tr>
-
-
-<tr>
-<td><span class="popName">Mark Begich </span> </td>
-<td><span class="popValue"> ${begich.toLocaleString()}  </span></td>
-<td><span class="popPercent">${(begichPercent*100).toFixed(1)}%</span> </td>
-
-</tr>
-
-<tr>
-<td><span class="popName">Mike Dunleavy </span> </td>
-<td><span class="popValue"> ${dunleavy.toLocaleString()}  </span></td>
-<td><span class="popPercent">${(dunleavyPercent*100).toFixed(1)}%</span> </td>
-
-</tr>
-<tr>
-<td><span class="popName">Bill Walker </span> </td>
-<td><span class="popValue"> ${walker.toLocaleString()}  </span></td>
-<td><span class="popPercent">${(walkerPercent*100).toFixed(1)}%</span> </td>
-
-</tr>
-
-
-</table>`
-
-console.log('PUPUPS')
-console.log(popup)
+// const popTable =  `
 
 
 
-  popup.setLngLat(e.lngLat)
-  .setHTML(popTable)
-  .addTo(map1);
+
+// <table width="100%">
+// <tr class="popPre"><td>${preName}</td></tr>
+// <tr>
+// <th class="thead">Candidate</th>
+// <th class="thead">Votes</th> 
+// <th class="thead">Pct.</th>
+// </tr>
 
 
-})
+// <tr>
+// <td><span class="popName">Mark Begich </span> </td>
+// <td><span class="popValue"> ${begich.toLocaleString()}  </span></td>
+// <td><span class="popPercent">${(begichPercent*100).toFixed(1)}%</span> </td>
+
+// </tr>
+
+// <tr>
+// <td><span class="popName">Mike Dunleavy </span> </td>
+// <td><span class="popValue"> ${dunleavy.toLocaleString()}  </span></td>
+// <td><span class="popPercent">${(dunleavyPercent*100).toFixed(1)}%</span> </td>
+
+// </tr>
+// <tr>
+// <td><span class="popName">Bill Walker </span> </td>
+// <td><span class="popValue"> ${walker.toLocaleString()}  </span></td>
+// <td><span class="popPercent">${(walkerPercent*100).toFixed(1)}%</span> </td>
+
+// </tr>
+
+
+// </table>`
+
+// console.log('PUPUPS')
+// console.log(popup)
+
+
+
+//   popup.setLngLat(e.lngLat)
+//   .setHTML(popTable)
+//   .addTo(map1);
+
+
+// })
 
 
 
