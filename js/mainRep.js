@@ -184,7 +184,8 @@ const popTable =  `
 
 
 <table width="100%">
-<tr class="popPre"><td>${preName}</td></tr>
+<p class="popPre">${preName}</p>
+
 <tr>
 <th class="thead">Candidate</th>
 <th class="thead">Votes</th> 

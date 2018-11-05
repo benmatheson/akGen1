@@ -205,9 +205,9 @@ const popTable =  `
 
 
 
+<p class="popPre">${preName}</p>
 
 <table width="100%">
-<tr class="popPre"><td>${preName}</td></tr>
 <tr>
 <th class="thead">Candidate</th>
 <th class="thead">Votes</th> 
