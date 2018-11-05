@@ -96,7 +96,7 @@ map1.on("load", function () {
     var yes = e.features[0].properties["YES"];
     var noPercent = e.features[0].properties["noPercent"];
     var yesPercent = e.features[0].properties["yesPercent"];
-    var popTable = "\n\n\n\n\n<table width=\"100%\">\n<tr class=\"popPre\"><td>" + preName + "</td></tr>\n<tr>\n<th class=\"thead\">Option</th>\n<th class=\"thead\">Votes</th> \n<th class=\"thead\">Pct.</th>\n</tr>\n\n\n<tr>\n<td><span class=\"popName\">Yes</span> </td>\n<td><span class=\"popValue\"> " + yes.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (yesPercent ? (yesPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n\n<tr>\n<td><span class=\"popName\">No </span> </td>\n<td><span class=\"popValue\"> " + no.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (noPercent ? (noPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n\n</table>";
+    var popTable = "\n\n\n\n<p class=\"popPre\">" + preName + "</p>\n\n<table width=\"100%\">\n<tr>\n<th class=\"thead\">Option</th>\n<th class=\"thead\">Votes</th> \n<th class=\"thead\">Pct.</th>\n</tr>\n\n\n<tr>\n<td><span class=\"popName\">Yes</span> </td>\n<td><span class=\"popValue\"> " + yes.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (yesPercent ? (yesPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n\n<tr>\n<td><span class=\"popName\">No </span> </td>\n<td><span class=\"popValue\"> " + no.toLocaleString() + "  </span></td>\n<td><span class=\"popPercent\">" + (noPercent ? (noPercent * 100).toFixed(1) : 0) + "%</span> </td>\n\n</tr>\n\n</table>";
     popup.setLngLat(e.lngLat).setHTML(popTable).addTo(map1);
     map1.getCanvas().style.cursor = 'pointer'; //HOVER  
     //       if (e.features.length > 0) {
