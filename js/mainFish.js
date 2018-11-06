@@ -99,6 +99,8 @@ geoData.features.forEach(item=>{
             source: "alaskaPre",
             paint: {
        "fill-opacity": .99,
+       "fill-outline-color": "rgba(0,0,0,.2)",
+
 
        "fill-color": 
     ["case", ["==" , ["get", "winner"], "no"],
