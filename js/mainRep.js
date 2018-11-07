@@ -27,8 +27,8 @@ mapboxgl.accessToken =
         container: "map1",
         // style: "mapbox://styles/mapbox/dark-v9",
         // style: "mapbox://styles/mapbox/satellite-v9",
-        // style: "mapbox://styles/mapbox/light-v9",
-        style:  "mapbox://styles/benmatheson/cjo060m9v05hx2rp2yd4d3yiw",       // style: "mapbox://styles/mapbox/basic-v9",
+        style: "mapbox://styles/mapbox/light-v9",
+        // style:  "mapbox://styles/benmatheson/cjo060m9v05hx2rp2yd4d3yiw",       // style: "mapbox://styles/mapbox/basic-v9",
 
         pitch: 0,
     
