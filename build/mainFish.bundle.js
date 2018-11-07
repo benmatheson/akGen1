@@ -74,7 +74,7 @@ map1.on("load", function () {
       paint: {
         "fill-opacity": .99,
         "fill-outline-color": "rgba(255,255,255,.3)",
-        "fill-color": ["case", ["==", ["get", "winner"], "no"], ["interpolate", ["linear"], ["get", "noPercent"], .5, "#fddbc7", 1, "#67001f"], ["case", ["==", ["get", "winner"], "yes"], ["interpolate", ["linear"], ["get", "yesPercent"], .5, "#d9ef8b", 1, "#006837"], "white"]] // "fill-outline-color": [
+        "fill-color": ["case", ["==", ["get", "winner"], "no"], ["interpolate", ["linear"], ["get", "noPercent"], .5, "#fddbc7", .66, "#b2182b", 1, "#67001f"], ["case", ["==", ["get", "winner"], "yes"], ["interpolate", ["linear"], ["get", "yesPercent"], .5, "#d9ef8b", 1, "#006837"], "white"]] // "fill-outline-color": [
         //             'case', ['boolean', ['feature-state', 'hover'], false],
         //             '#333',
         //             'rgba(0,0,0,.01)'
