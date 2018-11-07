@@ -100,7 +100,7 @@ geoData.features.forEach(item=>{
             source: "alaskaPre",
             paint: {
        "fill-opacity": .99,
-       "fill-outline-color": "rgba(0,0,0,.2)",
+       "fill-outline-color": "rgba(255,255,255,.3)",
 
        "fill-color": 
     ["case", ["==" , ["get", "winner"], "walker"],
@@ -128,7 +128,7 @@ geoData.features.forEach(item=>{
       ["linear"],
   ["get", "dunleavyPercent"],
 
-   .33, "#fddbc7",
+   .4, "#fddbc7",
    .66, "#b2182b",
     1,   "#67001f"],
 
@@ -139,7 +139,7 @@ geoData.features.forEach(item=>{
      ["linear"],
  ["get", "begichPercent"],
 
-  .33, "#d1e5f0",
+  .4, "#d1e5f0",
   .66, "#2166ac",
    1,   "#053061"],
    "white"
